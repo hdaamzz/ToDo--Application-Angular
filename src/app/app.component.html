@@ -1,0 +1,25 @@
+
+<main class="todo-container">
+  <h2 >To-Do Application</h2>
+ <div>
+  
+  <input type="text" [(ngModel)]="newTask" placeholder="Enter New Task" />
+  <button (click)="addTask()">ADD</button>
+ </div>
+  <ul>
+    <li *ngFor="let todoItem of todoList ;let i=index" [class.completed]="todoItem.completed">
+      <label class="checkbox-wrapper">
+        <input type="checkbox" 
+               (change)="toggleComplete(i)" 
+               [checked]="todoItem.completed">
+        <span class="checkmark"></span>
+      </label>
+      <span > {{todoItem.task}} </span>
+      <button class="delete" (click)="deleteTask(todoItem.id)" >DELETE</button>
+    </li>
+  </ul>
+</main>
+
+
+
+<router-outlet />
